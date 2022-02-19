@@ -30,13 +30,14 @@
 <br />
 <div align="center">
   <a href="https://github.com/alex-christiansen/gift-card-registration">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/automation-icon.png" alt="Logo" width="80" height="80">
   </a>
+  
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Automated Gift Card Registration</h3>
 
   <p align="center">
-    project_description
+    This script helps automate the registration of gift cards on <a href="https://redeem.giftcards.com/">https://redeem.giftcards.com/</a> including capturing the resulting gift card number and pin after registration.
     <br />
     <a href="https://github.com/alex-christiansen/gift-card-registration"><strong>Explore the docs »</strong></a>
     <br />
@@ -82,55 +83,68 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://redeem.giftcards.com/)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+When certain gift cards are purchased, you must redeem them for a specific store. After redeeming them, you receive a new gift card number and pin for that specific store (and dollar value). The script will read inputted gift card numbers from a google sheet, register them through the website and then paste the resulting gift card number and pin in the google sheet. 
 
+Using the python package <a href="https://pypi.org/project/selenium/">Selenium</a>, we can automate this process. All you need to do is upload the original gift card numbers and pins and the script does the rest.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [Selenium](https://pypi.org/project/selenium/)
+* [Chrome Webdriver](https://chromedriver.chromium.org/downloads)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+There are several steps before you can get up and running but once completed, running the script is easy
 
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+* [Homebrew](https://www.freecodecamp.org/news/python-version-on-mac-update/#:~:text=How%20to%20Install%20Homebrew%20on%20Mac)
+
   ```sh
-  npm install npm@latest -g
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```
+
+* Python 3
+
+  ```sh
+  brew install python
+  ```
+
+    ```sh
+  python --version
+  ```
+
+* [Chrome Driver](https://chromedriver.chromium.org/downloads)
+
+* Service Account for Google Console
+https://console.cloud.google.com/
+API & Services
+Google Sheets
+Google Drive
+
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free SA Key at [https://example.com](https://example.com)
+2. Create google sheet (https://docs.google.com/spreadsheets/d/1PqV52zh53bcpRZsde9E6uRnDqG08CHBgi4SOgKW1_AY/copy)
+3. Share SA with Google Sheet
 2. Clone the repo
    ```sh
    git clone https://github.com/alex-christiansen/gift-card-registration.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
+3. Install packages
+   ```pip3 install -r python/requirements.txt
    ```
-4. Enter your API in `config.js`
+4. Update file names
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
@@ -226,5 +240,5 @@ Project Link: [https://github.com/alex-christiansen/gift-card-registration](http
 [license-shield]: https://img.shields.io/github/license/alex-christiansen/gift-card-registration.svg?style=for-the-badge
 [license-url]: https://github.com/alex-christiansen/gift-card-registration/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[linkedin-url]: https://linkedin.com/in/christiansenalex
+[product-screenshot]: images/giftcards.com.png

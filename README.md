@@ -85,7 +85,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://redeem.giftcards.com/)
 
-When certain gift cards are purchased, you must redeem them for a specific store. After redeeming them, you receive a new gift card number and pin for that specific store (and dollar value). The script will read inputted gift card numbers from a google sheet, register them through the website and then paste the resulting gift card number and pin in the google sheet. 
+When certain gift cards are purchased, you must redeem them for a specific store. After redeeming them, you receive a new gift card number and pin for that specific store (and dollar value). The script will read inputted gift card numbers from a Google Sheets, register them through the website and then paste the resulting gift card number and pin in the Google Sheets. 
 
 Using the python package <a href="https://pypi.org/project/selenium/">Selenium</a>, we can automate this process. All you need to do is upload the original gift card numbers and pins and the script does the rest.
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -102,45 +102,66 @@ Using the python package <a href="https://pypi.org/project/selenium/">Selenium</
 <!-- GETTING STARTED -->
 ## Getting Started
 
-There are several steps before you can get up and running but once completed, running the script is easy
+To get started, you'll need to install Python3 and  Chrome Webdriver. In addition, you'll need to create a free GCP account so that you can use an API to access the gift card numbers stored in a Google Sheet.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* [Homebrew](https://www.freecodecamp.org/news/python-version-on-mac-update/#:~:text=How%20to%20Install%20Homebrew%20on%20Mac)
+* Install [Homebrew](https://www.freecodecamp.org/news/python-version-on-mac-update/#:~:text=How%20to%20Install%20Homebrew%20on%20Mac). Homebrew is a free and open-source software package management system that simplifies the installation of software on Apple's operating system, macOS. We'll use it to install Python. To install Homebrew, run the following commands in the terminal:
 
   ```sh
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```
 
-* Python 3
+* Install Python 3. Now that Homebrew is installed, we can run the below to install Python:
 
   ```sh
   brew install python
   ```
+  
+  Make sure that you have the right version installed, run: 
 
     ```sh
   python --version
   ```
 
-* [Chrome Driver](https://chromedriver.chromium.org/downloads)
+  The output should look like `Python 3.9.9` (your version may vary).
 
-* Service Account for Google Console
-https://console.cloud.google.com/
-API & Services
-Google Sheets
-Google Drive
+* Install [Chrome Driver](https://chromedriver.chromium.org/downloads). Chrome Driver is used in conjunction with Selenium to manupulate your browser. Make sure to download the correct Chrome version. This was built using version 97. You can see what version you are running by going to `Settings -> About Chrome` in Chrome.
 
+* Sign up for a free Google Cloud account (https://console.cloud.google.com/). You'll need to this to create a service account so that the program can access the data in Google Sheets. 
 
 ### Installation
 
-1. Get a free SA Key at [https://example.com](https://example.com)
-2. Create google sheet (https://docs.google.com/spreadsheets/d/1PqV52zh53bcpRZsde9E6uRnDqG08CHBgi4SOgKW1_AY/copy)
-3. Share SA with Google Sheet
-2. Clone the repo
+#### Create a Google Sheet
+
+1. Create a Google Sheet (https://docs.google.com/spreadsheets/d/1PqV52zh53bcpRZsde9E6uRnDqG08CHBgi4SOgKW1_AY/copy) using this exact template. Note: The data MUST reside in the first sheet in the workbook (if for some reason you have multiple tabs). You can call the sheet whatever you want.
+
+2. DO NOT change the order of the columns.
+
+3. Fill out columns A-G + I. If you don't fill out one of the required columns the program won't run. Be sure to fill out the amount otherwise it won't be able to complete the order.
+
+#### Enable Google APIs and Create Service Account
+
+1. Enable the Google Drive and Google Sheets API by going to the menu bar inside of the Google Cloud console and select APIs & Services then [Library](https://console.cloud.google.com/apis/library).
+
+2. Search for `Google Drive API` and make sure it's enabled. If not, simply click enable. Repeat for the `Google Sheets API`.
+
+3. Create a service account by going to APIs & Services then [Credentials](https://console.cloud.google.com/apis/credentials). At the top select `+Create Credential` then `Service Account`.
+
+4. Give the service account any name (e.g. gift-card-automation), click `Create and Continue` then `Done`. You DO NOT need to do steps two and three.
+
+5. Back on the [credentials](https://console.cloud.google.com/apis/credentials) page, grab the email for your service account.
+
+6. Share the Google Sheet that you created above with this service account and make sure it has edit access.
+
+#### Clone the Repo & Install Packages
+
+1. Clone this repo into your own l
+   
    ```sh
-   git clone https://github.com/alex-christiansen/gift-card-registration.git
+   gh repo clone alex-christiansen/gift-card-registration
    ```
+
 3. Install packages
    ```pip3 install -r python/requirements.txt
    ```

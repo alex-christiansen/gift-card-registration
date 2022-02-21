@@ -163,7 +163,9 @@ To get started, you'll need to install Python3 and  Chrome Webdriver. In additio
   pip3 install -r python/requirements.txt
   ```
 
-4. Create a JSON key for your service account.
+#### Create JSON Key 
+
+1. Create a JSON key for your service account.
   
 * Go back to the service account in the console, `APIs & Services -> Credentials`.
 * Click on the service account name that you created before
@@ -171,30 +173,38 @@ To get started, you'll need to install Python3 and  Chrome Webdriver. In additio
 * Pick `JSON` and then create the keys
 * A file will get downloaded to your computer that you'll need to move to this directory
 
-5. Rename the JSON key to `google-api.json` (just find it in your downloads and rename).
+2. Rename the JSON key to `google-api.json` (just find it in your downloads and rename).
 
-6. Move the JSON key to this directory by running the below (you may have to change the directory names)
+3. Move the JSON key to this directory by running the below (you may have to change the directory names)
 
    ```sh
    mv ~/Downloads/google-api.json ~/Desktop/gift-card-registration/
    ```
 
-7. Update `chromedriver_location = "filepath/chromedriver"`
+#### Rename program variables
+
+1. Update `chromedriver_location = "filepath/chromedriver"`
 
 * Update the location of chromedriver, if you just downloaded it, the path will be something like `/Users/username/Downloads/chromedriver`
 * Make sure chromedriver can run by double-clicking it (I've assumed you already unzipped it)
 * If you can't, go to `System Preferences` -> `Security & Privacy` and make sure the program has permissions to run
 
-8. Update `sheet = client.open('google-drive-file-name')` with the correct sheet name. Change `google-drive-file-name` to the name of your Google Sheet that has the data.
+2. Update `sheet = client.open('google-drive-file-name')` with the correct sheet name. Change `google-drive-file-name` to the name of your Google Sheet that has the data.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+After everything has been installed, you can run the script by typing
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+```sh
+python3 ~/Desktop/gift-card-registration/python/web_automation.py
+```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+Note: If you try to use other browsers while the script is running it will error out. If it errors out for any reason, just close the browser it was in and run it again. 
+
+<!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
+
+<!-- <p align="right">(<a href="#top">back to top</a>)</p> -->
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -234,18 +244,18 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+<!-- Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com -->
 
 Project Link: [https://github.com/alex-christiansen/gift-card-registration](https://github.com/alex-christiansen/gift-card-registration)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+<!-- ## Acknowledgments
 
 * []()
 * []()
-* []()
+* []() -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

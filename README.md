@@ -7,8 +7,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -24,8 +22,6 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -33,7 +29,6 @@
     <img src="images/automation-icon.png" alt="Logo" width="80" height="80">
   </a>
   
-
 <h3 align="center">Automated Gift Card Registration</h3>
 
   <p align="center">
@@ -49,8 +44,6 @@
     <a href="https://github.com/alex-christiansen/gift-card-registration/issues">Request Feature</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -78,19 +71,15 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://redeem.giftcards.com/)
 
-When certain gift cards are purchased, you must redeem them for a specific store. After redeeming them, you receive a new gift card number and pin for that specific store (and dollar value). The script will read inputted gift card numbers from a Google Sheets, register them through the website and then paste the resulting gift card number and pin in the Google Sheets. 
+When certain gift cards are purchased, you must redeem them for a specific store. After redeeming them, you receive a new gift card number and pin for that specific store (and dollar value). The script will read inputted gift card numbers from a Google Sheets, register them through the website and then paste the resulting gift card number and pin in the Google Sheets.
 
 Using the python package <a href="https://pypi.org/project/selenium/">Selenium</a>, we can automate this process. All you need to do is upload the original gift card numbers and pins and the script does the rest.
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 ### Built With
 
@@ -118,7 +107,7 @@ To get started, you'll need to install Python3 and  Chrome Webdriver. In additio
   brew install python
   ```
   
-  Make sure that you have the right version installed, run: 
+  Make sure that you have the right version installed, run:
 
     ```sh
   python --version
@@ -128,13 +117,13 @@ To get started, you'll need to install Python3 and  Chrome Webdriver. In additio
 
 * Install [Chrome Driver](https://chromedriver.chromium.org/downloads). Chrome Driver is used in conjunction with Selenium to manupulate your browser. Make sure to download the correct Chrome version. This was built using version 97. You can see what version you are running by going to `Settings -> About Chrome` in Chrome.
 
-* Sign up for a free Google Cloud account (https://console.cloud.google.com/). You'll need to this to create a service account so that the program can access the data in Google Sheets. 
+* Sign up for a free Google Cloud account (<https://console.cloud.google.com/>). You'll need to this to create a service account so that the program can access the data in Google Sheets.
 
 ### Installation
 
 #### Create a Google Sheet
 
-1. Create a Google Sheet (https://docs.google.com/spreadsheets/d/1PqV52zh53bcpRZsde9E6uRnDqG08CHBgi4SOgKW1_AY/copy) using this exact template. Note: The data MUST reside in the first sheet in the workbook (if for some reason you have multiple tabs). You can call the sheet whatever you want.
+1. Create a Google Sheet (<https://docs.google.com/spreadsheets/d/1PqV52zh53bcpRZsde9E6uRnDqG08CHBgi4SOgKW1_AY/copy>) using this exact template. Note: The data MUST reside in the first sheet in the workbook (if for some reason you have multiple tabs). You can name the sheet whatever you want.
 
 2. DO NOT change the order of the columns.
 
@@ -156,23 +145,47 @@ To get started, you'll need to install Python3 and  Chrome Webdriver. In additio
 
 #### Clone the Repo & Install Packages
 
-1. Clone this repo into your own l
-   
-   ```sh
-   gh repo clone alex-christiansen/gift-card-registration
-   ```
+1. Clone this repo onto your local machine. For those unfamilar with this process, you'll generally want to clone it to your desktop. To do that, open up Terminal and type `cd ~/Desktop`. Then you can run the below:
+
+  ```sh
+  gh repo clone alex-christiansen/gift-card-registration
+  ```
+
+2. Change your working directory to gift-card-registration. If you saved the repo to your Desktop, you can do this with the below
+
+  ```sh
+  cd ~/Desktop/gift-card-registration
+  ```
 
 3. Install packages
-   ```pip3 install -r python/requirements.txt
+
+  ```sh
+  pip3 install -r python/requirements.txt
+  ```
+
+4. Create a JSON key for your service account.
+  
+* Go back to the service account in the console, `APIs & Services -> Credentials`.
+* Click on the service account name that you created before
+* At the top, click `Keys` -> `Add Key`
+* Pick `JSON` and then create the keys
+* A file will get downloaded to your computer that you'll need to move to this directory
+
+5. Rename the JSON key to `google-api.json` (just find it in your downloads and rename).
+
+6. Move the JSON key to this directory by running the below (you may have to change the directory names)
+
+   ```sh
+   mv ~/Downloads/google-api.json ~/Desktop/gift-card-registration/
    ```
-4. Update file names
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+7. Update `chromedriver_location = "filepath/chromedriver"`
 
+* Update the location of chromedriver, if you just downloaded it, the path will be something like `/Users/username/Downloads/chromedriver`
+* Make sure chromedriver can run by double-clicking it (I've assumed you already unzipped it)
+* If you can't, go to `System Preferences` -> `Security & Privacy` and make sure the program has permissions to run
 
+8. Update `sheet = client.open('google-drive-file-name')` with the correct sheet name. Change `google-drive-file-name` to the name of your Google Sheet that has the data.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -183,21 +196,17 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+* [ ] Feature 1
+* [ ] Feature 2
+* [ ] Feature 3
+  * [ ] Nested Feature
 
 See the [open issues](https://github.com/alex-christiansen/gift-card-registration/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -215,16 +224,12 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTACT -->
 ## Contact
@@ -235,8 +240,6 @@ Project Link: [https://github.com/alex-christiansen/gift-card-registration](http
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
@@ -245,8 +248,6 @@ Project Link: [https://github.com/alex-christiansen/gift-card-registration](http
 * []()
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

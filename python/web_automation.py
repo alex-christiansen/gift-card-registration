@@ -24,7 +24,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('google-api.json', scop
 client = gspread.authorize(creds)
 sheet = client.open('Script Test')
 # get the first sheet of the Spreadsheet
-chromedriver_location = "/Users/alexchristiansen/Downloads/chromedriver"
+chromedriver_location = "filepath/chromedriver"
 
 sheet_instance = sheet.get_worksheet(0)
 og_records_data = sheet_instance.get_all_records()

@@ -75,12 +75,12 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://redeem.giftcards.com/)
+**Disclaimer: This project was built for fun. Use this at your own risk. I make no promises to fix bugs or update in the future. The script is currently built to handle only $500 gift cards.**
 
 When certain gift cards are purchased, you must redeem them for a specific store. After redeeming them, you receive a new gift card number and pin for that specific store (and dollar value). The script will read inputted gift card numbers from a Google Sheets, register them through the website and then paste the resulting gift card number and pin in the Google Sheets.
 
 Using the python package <a href="https://pypi.org/project/selenium/">Selenium</a>, we can automate this process. All you need to do is upload the original gift card numbers and pins and the script does the rest.
 
-Disclaimer: This project was built for fun. Use this at your own risk. I make no promises to fix bugs or update in the future. 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With

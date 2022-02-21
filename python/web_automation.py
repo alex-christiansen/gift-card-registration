@@ -22,7 +22,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('google-api.json', scop
 
 # authorize the clientsheet 
 client = gspread.authorize(creds)
-sheet = client.open('Script Test')
+sheet = client.open('google-drive-file-name')
 # get the first sheet of the Spreadsheet
 chromedriver_location = "filepath/chromedriver"
 
